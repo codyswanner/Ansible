@@ -1,0 +1,9 @@
+- name: Deploy WireGuard client configuration
+  # https://oneuptime.com/blog/post/2026-02-21-ansible-configure-wireguard-vpn/view#client-configuration
+  ansible.builtin.template:
+    src: ~/Ansible/wg-client.conf.j2
+    dest: "/etc/wireguard/{{ wg_interface }}.conf"
+    owner: root
+    group: root
+    mode: '0600'
+  become: true

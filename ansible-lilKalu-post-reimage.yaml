@@ -1,0 +1,6 @@
+- name: Setup laptop after reimage
+  hosts: lilKalu
+  roles:
+    - role: common
+    - role: clients
+    - role: portableDevices

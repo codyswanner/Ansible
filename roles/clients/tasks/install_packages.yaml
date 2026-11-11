@@ -1,0 +1,82 @@
+- name: install dnf packages
+  ansible.builtin.dnf:
+    name:
+      - curl
+      - flatpak
+      - git
+      - jack-audio-connection-kit
+      - net-tools
+      - nfs-utils
+      - openssh-clients
+      - picard
+      - pipewire-plugin-jack
+      - protonvpn-cli
+      - qjackctl
+      - steam
+      - traceroute
+      - waydroid
+      - wget
+      - wireguard-tools
+      - 'https://proton.me/download/pass/linux/ProtonPass.rpm'
+    state: present
+  when: ansible_facts['os_family']|lower == 'redhat'
+  become: true
+
+- name: install apt packages
+  ansible.builtin.apt:
+    name:
+      - android-sdk-platform-tools-common
+      - curl
+      - default-libmysqlclient-dev
+      - docker-buildx-plugin
+      - docker-ce-cli
+      - docker-ce
+      - docker-compose-plugin
+      - flatpak
+      - git
+      - gnome-multi-writer
+      - jackd2
+      - language-pack-en
+      - nfs-common
+      - openoffice.org-hyphenation
+      - openssh-client
+      - picard
+      - pipewire-jack
+      - proton-pass
+      - proton-vpn-gnome-desktop
+      - protonvpn-stable-release
+      - python-is-python3
+      - qjackctl
+      - signal-desktop
+      - solaar
+      - steam-launcher
+      - traceroute
+      - wakeonlan
+      - waydroid
+      - wget
+      - wireguard
+      - 'https://proton.me/download/PassDesktop/linux/x64/ProtonPass.deb'
+  when: ansible_facts['os_family']|lower == 'debian'
+  become: true
+
+- name: install flatpak packages
+  community.general.flatpak:
+    name:
+      - com.heroicgameslauncher.hgl
+      - com.moonlight_stream.Moonlight
+      - com.vscodium.codium
+      - re.sonny.Eloquent-1.5-stable-x86_64.flatpak
+      - org.gimp.GIMP
+      - org.kde.krita
+      - org.musescore.MuseScore
+      - org.shotcut.Shotcut
+  become: true
+
+- name: copy AppImages
+  ansible.builtin.copy:
+    src: ~/Documents/Installations/AppImages/
+    dest: /home/cody/Documents/Installations/AppImages/
+    owner: cody
+    group: cody
+    mode: 0500
+  become: true

@@ -1,0 +1,18 @@
+# Managed by Ansible
+
+[Interface]
+Address = {{ wg_client_address }}
+PrivateKey = {{ wg_client_private_key }}
+{% if wg_dns is defined %}
+DNS = {{ wg_dns }}
+{% endif %}
+
+[Peer]
+PublicKey = {{ wg_server_public_key }}
+Endpoint = {{ wg_server_endpoint }}
+{% if route_all_traffic %}
+AllowedIPs = 0.0.0.0/0
+{% else %}
+AllowedIPs = 10.10.0.0/24
+{% endif %}
+PersistentKeepalive = 25

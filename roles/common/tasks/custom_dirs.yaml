@@ -1,0 +1,6 @@
+- name: create custom directories
+  ansible.builtin.file:
+    path: "{{item}}"
+    state: directory
+  loop: "{{custom_dirs}}"
+  become: true

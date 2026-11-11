@@ -1,0 +1,71 @@
+- name: plasma-org.kde.plasma.desktop-appletsrc
+  community.general.kdeconfig:
+    path: /home/cody/.config/plasma-org.kde.plasma.desktop-appletsrc
+    values:
+      - groups: [Containments, 1]
+        key: wallpaperplugin
+        value: org.kde.slideshow
+      - groups: [Containments, 1, Wallpaper, org.kde.slideshow, General]
+        key: SlidePaths
+        value: /home/cody/Pictures/DesktopBackground/
+      - groups: [Containments, 1, Wallpaper, org.kde.slideshow, General]
+        key: UncheckedSlides
+        value: /home/cody/Pictures/DesktopBackground/generic bkgd 3.jpg
+  become: true
+
+- name: kscreenlockerrc
+  community.general.kdeconfig:
+    path: /home/cody/.config/kscreenlockerrc
+    values:
+      - groups: [Greeter]
+        key: WallpaperPlugin
+        value: org.kde.slideshow
+      - groups: [Greeter, Wallpaper, org.kde.image, General]
+        key: SlidePaths
+        value: /usr/share/wallpapers/
+      - groups: [Greeter, Wallpaper, org.kde.slideshow, General]
+        key: UncheckedSlides
+        value: /usr/share/wallpapers/Air/,/usr/share/wallpapers/Autumn/,/usr/share/wallpapers/ColdRipple/,/usr/share/wallpapers/ColorfulCups/,/usr/share/wallpapers/DarkestHour/,/usr/share/wallpapers/Elarun/,/usr/share/wallpapers/FlyingKonqui/,/usr/share/wallpapers/Grey/,/usr/share/wallpapers/Honeywave/,/usr/share/wallpapers/Horos/,/usr/share/wallpapers/Kay/,/usr/share/wallpapers/Kite/,/usr/share/wallpapers/MilkyWay/,/usr/share/wallpapers/Mountain/,/usr/share/wallpapers/Next/,/usr/share/wallpapers/Nexus/,/usr/share/wallpapers/Nuvole/,/usr/share/wallpapers/OneStandsOut/,/usr/share/wallpapers/Opal/,/usr/share/wallpapers/PastelHills/,/usr/share/wallpapers/Patak/,/usr/share/wallpapers/SafeLanding/,/usr/share/wallpapers/ScarletTree/,/usr/share/wallpapers/Shell/,/usr/share/wallpapers/Sub-Arctic/,/usr/share/wallpapers/summer_1am/,/usr/share/wallpapers/Volna/
+  become: true
+
+- name: ktimezonedrc
+  community.general.kdeconfig:
+    path: /home/cody/.config/ktimezonedrc
+    values:
+      - groups: [TimeZones]
+        key: LocalZone
+        value: America/Chicago
+      - groups: [TimeZones]
+        key: ZoneinfoDir
+        value: /usr/share/zoneinfo
+      - groups: [TimeZones]
+        key: Zonetab
+        value: /usr/share/zoneinfo/zone.tab
+  become: true
+
+- name: mimeapps.list
+  community.general.kdeconfig:
+    path: /home/cody/.config/mimeapps.list
+    values:
+      - groups: [Added Associations]
+        key: application/pdf
+        value: firefox.desktop;org.gimp.GIMP.desktop;libreoffice-draw.desktop;org.kde.krita.pdf.desktop;org.libreoffice.LibreOffice.draw.desktop;
+      - groups: [Default Applications]
+        key: application/pdf
+        value: firefox.desktop;
+      - groups: [Default Applications]
+        key: x-scheme-handler/heroic
+        value: heroic.desktop
+      - groups: [Default Applications]
+        key: x-scheme-handler/sgnl
+        value: signal.desktop
+      - groups: [Default Applications]
+        key: x-scheme-handler/signalcaptcha
+        value: signal.desktop
+  become: true
+
+- name: copy keyboard shortucts
+  ansible.builtin.copy:
+    src: ~/Dev/Ansible/kglobalshortcutsrc
+    dest: /home/cody/.config/kglobalshortcutsrc
+  become: true
