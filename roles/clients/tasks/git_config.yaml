@@ -1,0 +1,29 @@
+- name: set git name
+  community.general.git_config:
+    name: user.name
+    scope: global
+    value: codyswanner
+
+- name: set git email
+  community.general.git_config:
+    name: user.email
+    scope: global
+    value: 108250848+codyswanner@users.noreply.github.com
+
+- name: set git default branch name
+  community.general.git_config:
+    name: init.defaultbranch
+    scope: global
+    value: main
+
+- name: set git signing format
+  community.general.git_config:
+    name: gpg.format
+    scope: global
+    value: ssh
+
+- name: set git signingkey
+  community.general.git_config:
+    name: user.signingkey
+    scope: global
+    value: /home/cody/.ssh/github-261111.pub  # make this a variable later

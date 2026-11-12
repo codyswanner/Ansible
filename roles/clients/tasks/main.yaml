@@ -2,3 +2,4 @@
 - import_tasks: ssh_setup.yaml
 - import_tasks: Docker_setup_fedora.yaml
 - import_tasks: KDE_config.yaml
+- import_tasks: git_config.yaml
