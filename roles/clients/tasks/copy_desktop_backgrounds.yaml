@@ -1,0 +1,4 @@
+- name: copy DesktopBackgrounds
+  ansible.builtin.copy:
+    src: /srv/nfs/DesktopBackgrounds/
+    dest: /home/cody/Pictures/DesktopBackgrounds/
