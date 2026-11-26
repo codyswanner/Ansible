@@ -1,4 +1,4 @@
-- name: plasma-org.kde.plasma.desktop-appletsrc
+- name: Set wallpapers
   community.general.kdeconfig:
     path: /home/cody/.config/plasma-org.kde.plasma.desktop-appletsrc
     values:
@@ -13,7 +13,7 @@
         value: /home/cody/Pictures/DesktopBackgrounds/generic bkgd 3.jpg
   become: true
 
-- name: kscreenlockerrc
+- name: Set lockscreen
   community.general.kdeconfig:
     path: /home/cody/.config/kscreenlockerrc
     values:
@@ -28,7 +28,7 @@
         value: /usr/share/wallpapers/Air/,/usr/share/wallpapers/Autumn/,/usr/share/wallpapers/ColdRipple/,/usr/share/wallpapers/ColorfulCups/,/usr/share/wallpapers/DarkestHour/,/usr/share/wallpapers/Elarun/,/usr/share/wallpapers/FlyingKonqui/,/usr/share/wallpapers/Grey/,/usr/share/wallpapers/Honeywave/,/usr/share/wallpapers/Horos/,/usr/share/wallpapers/Kay/,/usr/share/wallpapers/Kite/,/usr/share/wallpapers/MilkyWay/,/usr/share/wallpapers/Mountain/,/usr/share/wallpapers/Next/,/usr/share/wallpapers/Nexus/,/usr/share/wallpapers/Nuvole/,/usr/share/wallpapers/OneStandsOut/,/usr/share/wallpapers/Opal/,/usr/share/wallpapers/PastelHills/,/usr/share/wallpapers/Patak/,/usr/share/wallpapers/SafeLanding/,/usr/share/wallpapers/ScarletTree/,/usr/share/wallpapers/Shell/,/usr/share/wallpapers/Sub-Arctic/,/usr/share/wallpapers/summer_1am/,/usr/share/wallpapers/Volna/
   become: true
 
-- name: ktimezonedrc
+- name: Set timezone
   community.general.kdeconfig:
     path: /home/cody/.config/ktimezonedrc
     values:
@@ -43,7 +43,7 @@
         value: /usr/share/zoneinfo/zone.tab
   become: true
 
-- name: mimeapps.list
+- name: Set mimeapps config
   community.general.kdeconfig:
     path: /home/cody/.config/mimeapps.list
     values:
