@@ -2,4 +2,6 @@
   ansible.builtin.copy:
     src: ~/Dev/Ansible/ssh/kahuna
     dest: /home/cody/.ssh
+    owner: cody
+    group: cody
   become: true
