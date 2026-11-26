@@ -125,6 +125,7 @@
       - wget
       - which
       - wireguard-tools
+  become: true
 
 - name: install flatpak packages
   community.general.flatpak:
