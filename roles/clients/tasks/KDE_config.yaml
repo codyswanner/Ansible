@@ -7,10 +7,10 @@
         value: org.kde.slideshow
       - groups: [Containments, 1, Wallpaper, org.kde.slideshow, General]
         key: SlidePaths
-        value: /home/cody/Pictures/DesktopBackground/
+        value: /home/cody/Pictures/DesktopBackgrounds/
       - groups: [Containments, 1, Wallpaper, org.kde.slideshow, General]
         key: UncheckedSlides
-        value: /home/cody/Pictures/DesktopBackground/generic bkgd 3.jpg
+        value: /home/cody/Pictures/DesktopBackgrounds/generic bkgd 3.jpg
   become: true
 
 - name: kscreenlockerrc
