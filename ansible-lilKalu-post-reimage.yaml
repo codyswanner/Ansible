@@ -4,3 +4,11 @@
     - role: common
     - role: clients
     - role: portableDevices
+    - role: laptop
+
+- name: Setup desktop after reimage
+  hosts: kahuna
+  roles:
+    - role: common
+    - role: clients
+    - role: desktop

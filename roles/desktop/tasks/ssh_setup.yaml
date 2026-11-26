@@ -1,5 +1,5 @@
 - name: setup ssh
   ansible.builtin.copy:
-    src: ~/Dev/Ansible/ssh
+    src: ~/Dev/Ansible/ssh/kahuna
     dest: /home/cody/.ssh
   become: true
