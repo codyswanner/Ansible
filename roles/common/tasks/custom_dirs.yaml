@@ -2,5 +2,7 @@
   ansible.builtin.file:
     path: "{{item}}"
     state: directory
+    owner: cody
+    group: cody
   loop: "{{custom_dirs}}"
   become: true
