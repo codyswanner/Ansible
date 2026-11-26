@@ -10,14 +10,13 @@
       - openssh-clients
       - picard
       - pipewire-plugin-jack
-      - protonvpn-cli
       - qjackctl
-      - steam
+      - steam # requires RPM Fusion
       - traceroute
       - waydroid
       - wget
       - wireguard-tools
-      - 'https://proton.me/download/pass/linux/ProtonPass.rpm'
+      # Proton Pass and VPN not in dnf repositories
     state: present
   when: ansible_facts['os_family']|lower == 'redhat'
   become: true
@@ -47,7 +46,6 @@
       - protonvpn-stable-release
       - python-is-python3
       - qjackctl
-      - signal-desktop
       - solaar
       - steam-launcher
       - traceroute
@@ -59,16 +57,90 @@
   when: ansible_facts['os_family']|lower == 'debian'
   become: true
 
+- name: install pacman packages
+  community.general.pacman:
+    name:
+      - amd-ucode
+      - ark
+      - aura
+      - base
+      - base-devel
+      - bluez-utils
+      - calf
+      - devtools
+      - docker
+      - docker-buildx
+      - docker-compose
+      - dolphin
+      - efibootmgr
+      - ethtool
+      - exfat-utils
+      - expac
+      - git
+      - grub
+      - gwenview
+      - helm-synth
+      - helm-synth-common
+      - helm-synth-debug
+      - helm-synth-lv2
+      - helm-synth-standalone
+      - helm-synth-vst
+      - jack-example-tools
+      - kate
+      - kcalc
+      - kdeconnect
+      - konsole
+      - kshutdown
+      - libreoffice-still
+      - man-db
+      - man-pages
+      - nano
+      - networkmanager
+      - nfs-utils
+      - ntfs-3g
+      - nvidia-open
+      - nvidia-settings
+      - nvidia-utils
+      - openvpn
+      - picard
+      - pipewire-jack
+      - plasma
+      - proton-vpn-gtk-app
+      - python-pip
+      - python-pipx
+      - qjackctl
+      - qt5-declarative
+      - realtime-privileges
+      - rust
+      - sof-firmware
+      - ssh-audit
+      - steam
+      - sudo
+      - sunshine
+      - texinfo
+      - torbrowser-launcher
+      - ttf-liberation
+      - ufw
+      - wacomtablet
+      - wget
+      - which
+      - wireguard-tools
+
 - name: install flatpak packages
   community.general.flatpak:
     name:
+      - app/fm.reaper.Reaper/x86_64/stable
+      - app/re.sonny.Eloquent/x86_64/stable
+      - com.discordapp.Discord
       - com.heroicgameslauncher.hgl
       - com.moonlight_stream.Moonlight
+      - com.obsproject.Studio
       - com.vscodium.codium
-      - re.sonny.Eloquent-1.5-stable-x86_64.flatpak
       - org.gimp.GIMP
       - org.kde.krita
+      - org.mozilla.firefox
       - org.musescore.MuseScore
+      - org.signal.Signal
       - org.shotcut.Shotcut
   become: true
 
