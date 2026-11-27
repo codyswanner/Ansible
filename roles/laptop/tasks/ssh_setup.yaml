@@ -1,6 +1,6 @@
 - name: setup ssh
   ansible.builtin.copy:
-    src: ~/Dev/Ansible/ssh/lilKalu
+    src: ~/Dev/Ansible/ssh/lilKalu/
     dest: /home/cody/.ssh
     owner: cody
     group: cody
