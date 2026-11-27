@@ -6,3 +6,10 @@
     group: cody
   loop: "{{custom_dirs}}"
   become: true
+
+# /mnt/nfs cannot be chown'd, so run it separately
+- name: create /mnt/nfs
+  ansible.builtin.file:
+    path: "/mnt/nfs"
+    state: directory
+  become: true
